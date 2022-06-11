@@ -35,7 +35,7 @@ def get_citation_args():
     parser.add_argument('--early_stopping', type=int, default=10,
                         help='require early stopping.')
     parser.add_argument('--dataset', type=str, default='mr',
-                        choices = ['20ng', 'R8', 'R52', 'ohsumed', 'mr'],
+                        choices = ['20ng', 'R8', 'R52', 'ohsumed', 'mr', 'mr_new'],
                         help='dataset to train')
 
     args, _ = parser.parse_known_args()
@@ -65,7 +65,7 @@ if args.cuda and torch.cuda.is_available():
 
 # Load data
 
-adj, features, y_train, y_val, y_test, train_mask, val_mask, test_mask, train_size, test_size = load_corpus('mr')
+adj, features, y_train, y_val, y_test, train_mask, val_mask, test_mask, train_size, test_size = load_corpus('mr_new')
 features = sp.identity(features.shape[0])
 features = preprocess_features(features)
 

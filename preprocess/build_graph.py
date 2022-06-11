@@ -49,22 +49,24 @@ with open('../data/' + dataset + '.txt', 'r') as f:
             doc_test_list.append(line.strip())
         elif temp[1].find('train') != -1:
             doc_train_list.append(line.strip())
-print(doc_train_list)
-print(doc_test_list)
+print("doc_train_list : LEN = ", len(doc_train_list), "  | list = ", doc_train_list)
+print("doc_test_list : LEN = ", len(doc_test_list), "  | list = ", doc_test_list)
+
 
 doc_content_list = []
 with open('../data/corpus/' + dataset + '.clean.txt', 'r') as f:
     lines = f.readlines()
     for line in lines:
         doc_content_list.append(line.strip())
-# print(doc_content_list)
+print("doc_name_list : LEN = ", len(doc_name_list), "  | list = ", doc_name_list)
+print("doc_content_list : LEN = ", len(doc_content_list), "  | list = ", doc_content_list)
 
 train_ids = []
 for train_name in doc_train_list:
     train_id = doc_name_list.index(train_name)
     train_ids.append(train_id)
 print(train_ids)
-random.shuffle(train_ids)
+# random.shuffle(train_ids)
 
 # partial labeled data
 #train_ids = train_ids[:int(0.2 * len(train_ids))]
@@ -79,7 +81,7 @@ for test_name in doc_test_list:
     test_id = doc_name_list.index(test_name)
     test_ids.append(test_id)
 print(test_ids)
-random.shuffle(test_ids)
+# random.shuffle(test_ids)
 
 test_ids_str = '\n'.join(str(index) for index in test_ids)
 with open('../data/' + dataset + '.test.index', 'w') as f:
@@ -87,8 +89,7 @@ with open('../data/' + dataset + '.test.index', 'w') as f:
 
 
 ids = train_ids + test_ids
-print(ids)
-print(len(ids))
+print("ids :: LEN = ", len(ids), '   | list = ', ids)
 
 shuffle_doc_name_list = []
 shuffle_doc_words_list = []

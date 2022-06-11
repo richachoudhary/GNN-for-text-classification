@@ -49,8 +49,8 @@ with open('../data/' + dataset + '.txt', 'r') as f:
             doc_test_list.append(line.strip())
         elif temp[1].find('train') != -1:
             doc_train_list.append(line.strip())
-# print(doc_train_list)
-# print(doc_test_list)
+print(doc_train_list)
+print(doc_test_list)
 
 doc_content_list = []
 with open('../data/corpus/' + dataset + '.clean.txt', 'r') as f:

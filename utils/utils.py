@@ -145,11 +145,11 @@ def load_corpus(dataset_str):
                 objects.append(pkl.load(f))
 
     x, y, tx, ty, allx, ally, adj = tuple(objects)
-    # print(x.shape, y.shape, tx.shape, ty.shape, allx.shape, ally.shape)
+    print(x.shape, y.shape, tx.shape, ty.shape, allx.shape, ally.shape)
 
     features = sp.vstack((allx, tx)).tolil()
     labels = np.vstack((ally, ty))
-    # print(len(labels))
+    print(len(labels))
 
     train_idx_orig = parse_index_file(
         "./data/{}.train.index".format(dataset_str))

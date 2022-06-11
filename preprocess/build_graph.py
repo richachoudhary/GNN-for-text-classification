@@ -43,12 +43,13 @@ doc_test_list = []
 with open('../data/' + dataset + '.txt', 'r') as f:
     lines = f.readlines()
     for line in lines:
-        doc_name_list.append(line.strip())
+        line = line.strip()
+        doc_name_list.append(line)
         temp = line.split("\t")
         if temp[1].find('test') != -1:
-            doc_test_list.append(line.strip())
+            doc_test_list.append(line)
         elif temp[1].find('train') != -1:
-            doc_train_list.append(line.strip())
+            doc_train_list.append(line)
 print("doc_train_list : LEN = ", len(doc_train_list), "  | list = ", doc_train_list)
 print("doc_test_list : LEN = ", len(doc_test_list), "  | list = ", doc_test_list)
 

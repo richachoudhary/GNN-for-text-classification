@@ -1,13 +1,16 @@
-NUM_LINES = 5764
-TRAIN = NUM_LINES*0.8
-TEST = NUM_LINES - TRAIN
+import re
 
-i,j = 0,0
 
-with open('test_ids.txt' , 'w') as f:
-    while i <= TRAIN:
-        f.write()
+CNT = 10
+
+i = 0
+
+with open('data\mr_new.txt' , 'r') as f:
+    lines = f.readlines()
+    for line in lines:
+        line = line.strip()
+        if i > CNT: 
+            break
         i += 1
-    while j <= TEST:
-        f.write()
-        i += 1
+        tmp = line.split("\t")
+        print(tmp)
